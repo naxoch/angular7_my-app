@@ -1,0 +1,89 @@
+<section id="login" class="container-fluid">
+  <div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-12 col-lg-12 col-sm-12 col-md-12">
+          <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">Iniciar sesión</h3>
+          <form (ngSubmit)="login(logForm.value); cargar = true;" [formGroup]="logForm">
+
+            <div class="form-group text-left">
+              <label for="email">Correo</label>
+              <input type="text"
+                    [ngClass]="{
+                      'alert-danger error': logForm.controls['email'].invalid && logForm.controls['email'].touched,
+                      'alert-success': logForm.controls['email'].valid && logForm.controls['email'].touched
+                    }"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    formControlName="email">
+              <div *ngIf="logForm.controls['email'].invalid && logForm.controls['email'].touched">
+                <span>
+                  Este campo es obligatorio y debe ser un correo válido
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group text-left">
+              <label for="password">Password</label>
+              <input type="password"
+                    [ngClass]="{
+                      'alert-danger error': logForm.controls['password'].invalid && logForm.controls['password'].touched
+                    }"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    formControlName="password">
+              <div *ngIf="logForm.controls['password'].invalid && logForm.controls['password'].touched">
+                <span>
+                  Campo obligatorio.
+                </span>
+             </div>
+              <div>
+                <span>
+                    {{error_message}}
+                </span>
+              </div>
+            </div>
+
+            <button type="submit"
+                    [ngClass]="{
+                      'btn-warning': !logForm.valid,
+                      'btn-primary ': logForm.valid
+                    }"
+                    class="btn btn-lg"
+                    [disabled]="!logForm.valid"
+                    *ngIf="!cargar">
+              Entrar
+            </button>
+            <button class="btn btn-primary btn-lg" *ngIf="cargar">
+              <span class="spinner-border spinner-border-sm"></span>
+              Cargando..
+            </button>
+
+          </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+<section class="container-fluid">
+  <div id="registro" class="container">
+      <div class="row">
+          <div class="col-xl-12 col-12 col-lg-12 col-sm-12 col-md-12">
+            <h3>Si no tienes cuenta, regístrate!</h3>
+            <div>
+                <button type="button"
+                        class="btn btn-primary btn-lg"
+                        routerLink="/registro">
+                  Registrarse
+                </button>
+              </div>
+          </div>
+        </div>
+  </div>
+</section>
+
+

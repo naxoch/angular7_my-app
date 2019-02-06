@@ -1,0 +1,36 @@
+<div id="chat" class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-12 col-lg-12 col-sm-12 col-md-12">
+        <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">Sala de chat!</h3>
+        <div id="msj" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12"  #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <div *ngFor="let mensaje of mensajes">
+            <h6 class="text-left">{{mensaje.user}} | {{mensaje.time.seconds * 1000 | date: 'yyyy/MM/dd h:mm:ss a' }}</h6>
+            <hr style="color: white;">
+            <p class="text-right">{{mensaje.mensaje}}</p>
+          </div>
+        </div>
+
+        <form id="chatform" (ngSubmit)="chat(chatForm.value)" [formGroup]="chatForm">
+            <div class="form-group">
+              <input type="text"
+                    placeholder="Escribe un mensaje..."
+                    autocomplete="off"
+                    class="form-control"
+                    id="mensaje"
+                    name="mensaje"
+                    formControlName="mensaje">
+            </div>
+
+            <button type="submit"
+                    [ngClass]="{
+                      'btn-warning': !chatForm.valid,
+                      'btn-primary ': chatForm.valid
+                    }"
+                    class="btn btn-lg"
+                    [disabled]="!chatForm.valid">
+              Enviar
+            </button>
+        </form>
+  </div>
+</div>

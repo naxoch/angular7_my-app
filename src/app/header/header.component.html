@@ -1,0 +1,43 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right"
+      type="button" data-toggle="collapse" data-target="#containerNavbar"
+      aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img src="../../favicon.ico" alt="logo">
+    </a>
+    <div class="collapse navbar-collapse" id="containerNavbar">
+      <ul class="navbar-nav mr-auto justify-content-end w-100">
+       <li class="nav-item" routerLinkActive="active"
+          *ngIf="isAuth()">
+          <a class="nav-link" routerLink="/chat">CHAT</a>
+       </li>
+        <li class="nav-item" routerLinkActive="active"
+            *ngIf="isAuth()">
+            <a class="nav-link" routerLink="/cats">LISTADO GATOS</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+            *ngIf="isAuth()">
+          <a class="nav-link" routerLink="/addcat">AÑADIR GATOS</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+            *ngIf="!isAuth()">
+            <button class="btn btn-success" routerLink="/login">INICIAR SESIÓN</button>
+        </li>
+        <li class="nav-item" routerLinkActive="active"
+            *ngIf="isAuth()">
+            <button (click)="onLogout()" class="btn btn-danger" routerLink="/login">CERRAR SESIÓN</button>
+        </li>
+      </ul>
+  </div>
+  </div>
+</nav>
+
+<header class="container-fluid">
+  <h2 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">Mi primera página con Angular 7</h2>
+  <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">Lorem ipsum dolor sit</h3>
+</header>
+
+

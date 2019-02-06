@@ -1,0 +1,15 @@
+<section id="gatos" class="container">
+  <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">Listado de gatos</h3>
+  <div class="row" *ngFor="let cat of cats">
+    <div class="col-xl-8 col-12 col-lg-8 col-sm-12 col-md-8 text-center">
+      <img [src]="cat.data.url" class="img-fluid img-thumbnail" alt="Imagen no encontrada" style="max-width: 400px;">
+    </div>
+
+    <div class="col-xl-4 col-12 col-lg-4 col-sm-12 col-md-4 text-center">
+      <h2 class="mx-auto" style="min-height: 60%">{{cat.data.nombre}}</h2>
+      <button class="btn btn-warning btn-lg"  routerLink="/editcat/{{cat.id}}">Editar</button>
+      <button class="btn btn-danger btn-lg" (click)="catDelete(cat.id)">Eliminar</button>
+    </div>
+
+  </div>
+</section>
